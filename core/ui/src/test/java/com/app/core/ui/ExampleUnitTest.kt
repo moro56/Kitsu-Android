@@ -1,4 +1,4 @@
-package com.app.kitsu
+package com.app.core.ui
 
 import org.junit.Test
 

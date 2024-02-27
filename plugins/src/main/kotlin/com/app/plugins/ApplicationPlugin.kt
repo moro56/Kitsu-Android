@@ -64,11 +64,10 @@ class ApplicationPlugin : Plugin<Project> {
             }
 
             dependencies {
-//                add("implementation", project(":core:base"))
-//                add("implementation", project(":core:mvi"))
-//                add("implementation", project(":core:navigation"))
-//                add("testImplementation", project(":core:test"))
-//                add("androidTestImplementation", project(":core:test"))
+                add("implementation", project(":core:base"))
+                add("implementation", project(":core:navigation"))
+                add("testImplementation", project(":core:test"))
+                add("androidTestImplementation", project(":core:test"))
             }
         }
     }

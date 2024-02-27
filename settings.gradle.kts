@@ -17,3 +17,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "Kitsu-Android"
 include(":app")
+include(":core:base")
+include(":core:navigation")
+include(":core:test")
+include(":core:ui")
