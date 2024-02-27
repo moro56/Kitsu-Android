@@ -16,27 +16,27 @@ gradlePlugin {
     plugins {
         register("plugin.app") {
             id = "plugin.app"
-            implementationClass = "com.app.gradle.ApplicationPlugin"
+            implementationClass = "com.app.plugins.ApplicationPlugin"
         }
         register("plugin.app.compose") {
             id = "plugin.app.compose"
-            implementationClass = "com.app.gradle.ApplicationComposePlugin"
+            implementationClass = "com.app.plugins.ApplicationComposePlugin"
         }
         register("plugin.feature") {
             id = "plugin.feature"
-            implementationClass = "com.app.gradle.FeaturePlugin"
+            implementationClass = "com.app.plugins.FeaturePlugin"
         }
         register("plugin.library") {
             id = "plugin.library"
-            implementationClass = "com.app.gradle.LibraryPlugin"
+            implementationClass = "com.app.plugins.LibraryPlugin"
         }
         register("plugin.library.compose") {
             id = "plugin.library.compose"
-            implementationClass = "com.app.gradle.LibraryComposePlugin"
+            implementationClass = "com.app.plugins.LibraryComposePlugin"
         }
         register("plugin.hilt") {
             id = "plugin.hilt"
-            implementationClass = "com.app.gradle.HiltPlugin"
+            implementationClass = "com.app.plugins.HiltPlugin"
         }
     }
 }
