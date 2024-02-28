@@ -16,4 +16,7 @@ ktlint {
 }
 
 dependencies {
+    implementation(project(":features:anime"))
+    implementation(project(":features:manga"))
+    implementation(project(":features:categories"))
 }

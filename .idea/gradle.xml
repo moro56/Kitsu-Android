@@ -26,6 +26,10 @@
             <option value="$PROJECT_DIR$/core/navigation" />
             <option value="$PROJECT_DIR$/core/test" />
             <option value="$PROJECT_DIR$/core/ui" />
+            <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/features/anime" />
+            <option value="$PROJECT_DIR$/features/categories" />
+            <option value="$PROJECT_DIR$/features/manga" />
             <option value="$PROJECT_DIR$/plugins" />
           </set>
         </option>
