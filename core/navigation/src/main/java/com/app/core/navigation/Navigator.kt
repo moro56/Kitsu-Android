@@ -28,7 +28,7 @@ abstract class Navigator {
  *
  * @property navController navigation controller
  */
-class AppNavigator(override val navController: NavController) : Navigator() {
+class AppNavigator(override var navController: NavController) : Navigator() {
     override fun navigate(command: NavCommand) {
         when (command) {
             NavCommand.GoBack -> navController.popBackStack()

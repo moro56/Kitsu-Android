@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.app.modular"
+    namespace = "com.app.kitsu"
 }
 
 ktlint {
