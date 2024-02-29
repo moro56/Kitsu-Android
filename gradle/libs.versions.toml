@@ -62,13 +62,14 @@ material = { group = "com.google.android.material", name = "material", version.r
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-json = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+okhttp-log-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 
 [bundles]
 compose = ["compose.material3", "compose.ui", "compose.ui.graphics", "compose.activity", "compose.navigation", "ui.tooling.preview"]
 lifecycle = ["lifecycle.runtime.ktx", "lifecycle.viewmodel"]
 test = ["core.test", "mockk", "mockk.android", "mockk.agent", "junit", "coroutines.test", "robolectric", "compose.navigation", "compose.navigation.test"]
 android-test = ["androidx.test.ext.junit", "espresso-core", "coroutines.test"]
-network = ["retrofit", "retrofit.json", "okhttp"]
+network = ["retrofit", "retrofit.json", "okhttp", "okhttp.log.interceptor"]
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

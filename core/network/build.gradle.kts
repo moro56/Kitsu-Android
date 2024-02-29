@@ -7,6 +7,10 @@ plugins {
 
 android {
     namespace = "com.app.core.network"
+
+    defaultConfig {
+        buildConfigField("String", "BASE_URL", "\"https://kitsu.io/api/edge/\"")
+    }
 }
 
 dependencies {
