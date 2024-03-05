@@ -8,8 +8,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.app.kitsu.ui.components.BottomNavBar
 import com.app.kitsu.navigation.AppGraph
+import com.app.kitsu.ui.components.BottomNavBar
 
 /**
  * Main screen

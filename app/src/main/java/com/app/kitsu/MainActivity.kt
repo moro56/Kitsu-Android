@@ -8,7 +8,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import com.app.kitsu.navigation.AppGraph
 import com.app.kitsu.ui.MainScreen
 import com.app.kitsu.ui.theme.KitsuAndroidTheme
 

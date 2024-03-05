@@ -38,6 +38,7 @@ object NetworkModule {
             }
             .addInterceptor { chain ->
                 val response = chain.proceed(chain.request())
+                // Check for empty response
                 when {
                     !response.isSuccessful -> {
                         response

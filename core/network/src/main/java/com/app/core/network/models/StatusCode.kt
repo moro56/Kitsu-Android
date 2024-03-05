@@ -1,5 +1,8 @@
 package com.app.core.network.models
 
+/**
+ * List of all possible status codes
+ */
 enum class StatusCode(val code: Int) {
     Unknown(0),
 
