@@ -22,6 +22,8 @@ gradle-tools = "7.3.1"
 kotlin-gradle-plugin = "1.8.10"
 appcompat = "1.6.1"
 material = "1.11.0"
+retrofit = "2.9.0"
+okhttp = "4.12.0"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -57,12 +59,17 @@ gradle-tools = { group = "com.android.tools.build", name = "gradle", version.ref
 kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin-gradle-plugin" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-json = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+okhttp-log-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 
 [bundles]
 compose = ["compose.material3", "compose.ui", "compose.ui.graphics", "compose.activity", "compose.navigation", "ui.tooling.preview"]
 lifecycle = ["lifecycle.runtime.ktx", "lifecycle.viewmodel"]
 test = ["core.test", "mockk", "mockk.android", "mockk.agent", "junit", "coroutines.test", "robolectric", "compose.navigation", "compose.navigation.test"]
 android-test = ["androidx.test.ext.junit", "espresso-core", "coroutines.test"]
+network = ["retrofit", "retrofit.json", "okhttp", "okhttp.log.interceptor"]
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

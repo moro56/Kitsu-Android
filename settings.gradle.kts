@@ -19,6 +19,7 @@ rootProject.name = "Kitsu-Android"
 include(":app")
 include(":core:base")
 include(":core:navigation")
+include(":core:network")
 include(":core:test")
 include(":core:ui")
 include(":features:anime")
