@@ -66,6 +66,7 @@ class ApplicationPlugin : Plugin<Project> {
             dependencies {
                 add("implementation", project(":core:base"))
                 add("implementation", project(":core:navigation"))
+                add("implementation", project(":core:ui"))
                 add("testImplementation", project(":core:test"))
                 add("androidTestImplementation", project(":core:test"))
             }
