@@ -1,6 +1,9 @@
 package com.app.core.network.di
 
 import com.app.core.network.BuildConfig
+import com.app.core.network.api.RestApi
+import com.app.core.network.api.RestApiImpl
+import com.app.core.network.api.services.KitsuService
 import com.app.core.network.models.StatusCode
 import dagger.Module
 import dagger.Provides
@@ -66,4 +69,11 @@ object NetworkModule {
         .baseUrl(BuildConfig.BASE_URL)
         .client(okHttpClient)
         .build()
+
+    @Provides
+    fun providesKitsuService(retrofit: Retrofit): KitsuService =
+        retrofit.create(KitsuService::class.java)
+
+    @Provides
+    fun providesRestApi(kitsuService: KitsuService): RestApi = RestApiImpl(kitsuService)
 }
