@@ -1,8 +1,8 @@
-package com.app.core.network.models
+package com.app.core.data.models
 
 import java.util.Date
 
-data class RemoteAnime(
+data class Anime(
     val createdAt: Date,
     val updatedAt: Date,
     val slug: String,
