@@ -1,14 +1,14 @@
 [versions]
-agp = "8.2.2"
+agp = "8.3.0"
 kotlin = "1.9.0"
 core-ktx = "1.12.0"
 lifecycle = "2.7.0"
-compose-bom = "2024.02.01"
+compose-bom = "2024.02.02"
 compose-compiler = "1.5.1"
 compose-activity = "1.8.2"
 compose-navigation = "2.7.7"
 serialization-json = "1.5.1"
-hilt = "2.48"
+hilt = "2.49"
 hilt-navigation = "1.2.0"
 ktlint = "11.6.1"
 mockk = "1.13.5"
@@ -65,11 +65,11 @@ okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhtt
 okhttp-log-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 
 [bundles]
-compose = ["compose.material3", "compose.ui", "compose.ui.graphics", "compose.activity", "compose.navigation", "ui.tooling.preview"]
-lifecycle = ["lifecycle.runtime.ktx", "lifecycle.viewmodel"]
-test = ["core.test", "mockk", "mockk.android", "mockk.agent", "junit", "coroutines.test", "robolectric", "compose.navigation", "compose.navigation.test"]
-android-test = ["androidx.test.ext.junit", "espresso-core", "coroutines.test"]
-network = ["retrofit", "retrofit.json", "okhttp", "okhttp.log.interceptor"]
+compose = ["compose-material3", "compose-ui", "compose-ui-graphics", "compose-activity", "compose-navigation", "ui-tooling-preview"]
+lifecycle = ["lifecycle-runtime-ktx", "lifecycle-viewmodel"]
+test = ["core-test", "mockk", "mockk-android", "mockk-agent", "junit", "coroutines-test", "robolectric", "compose-navigation", "compose-navigation-test"]
+android-test = ["androidx-test-ext-junit", "espresso-core", "coroutines-test"]
+network = ["retrofit", "retrofit-json", "okhttp", "okhttp-log-interceptor"]
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

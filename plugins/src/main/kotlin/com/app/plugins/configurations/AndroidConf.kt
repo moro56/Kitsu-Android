@@ -38,7 +38,9 @@ internal fun Project.androidConf(extension: BaseExtension) {
 
         packagingOptions.setExcludes(
             mutableSetOf(
-                "META-INF/**",
+                "META-INF/com.android.tools/proguard/coroutines.pro",
+                "META-INF/proguard/coroutines.pro",
+                "META-INF/MANIFEST.MF",
                 "LICENSE.txt",
                 "LICENSE"
             )
