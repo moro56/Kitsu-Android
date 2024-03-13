@@ -6,14 +6,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
 
 /**
  * Anime screen
  *
  * @param modifier compose modifier
+ * @param viewModel viewModel
  */
 @Composable
-fun AnimeScreen(modifier: Modifier) {
+fun AnimeScreen(modifier: Modifier, viewModel: AnimeViewModel = hiltViewModel()) {
     AnimeScreenContent(modifier = modifier)
 }
 

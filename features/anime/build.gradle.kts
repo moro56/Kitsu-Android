@@ -13,3 +13,7 @@ android {
 hilt {
     enableAggregatingTask = true
 }
+
+dependencies {
+    implementation(project(":core:data"))
+}

@@ -4,14 +4,11 @@ import com.app.core.network.BuildConfig
 import com.app.core.network.api.RestApi
 import com.app.core.network.api.RestApiImpl
 import com.app.core.network.api.services.KitsuService
-import com.app.core.network.models.StatusCode
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
-import okhttp3.ResponseBody.Companion.toResponseBody
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -39,35 +36,14 @@ object NetworkModule {
                     proceed(newRequest)
                 }
             }
-            .addInterceptor { chain ->
-                val response = chain.proceed(chain.request())
-                // Check for empty response
-                when {
-                    !response.isSuccessful -> {
-                        response
-                    }
-
-                    (response.body?.contentLength()?.takeIf { it >= 0 } != null) -> {
-                        response.newBuilder().code(StatusCode.OK.code).build()
-                    }
-
-                    else -> {
-                        response
-                            .newBuilder()
-                            .code(StatusCode.OK.code)
-                            .body("".toResponseBody("text/plain".toMediaType()))
-                            .build()
-                    }
-                }
-            }
             .addInterceptor(okHttpLoggingInterceptor)
             .build()
 
     @Provides
     fun providesRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
-        .addConverterFactory(GsonConverterFactory.create())
-        .baseUrl(BuildConfig.BASE_URL)
         .client(okHttpClient)
+        .baseUrl(BuildConfig.BASE_URL)
+        .addConverterFactory(GsonConverterFactory.create())
         .build()
 
     @Provides

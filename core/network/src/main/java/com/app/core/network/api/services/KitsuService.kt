@@ -7,6 +7,6 @@ import retrofit2.http.GET
 
 interface KitsuService {
 
-    @GET("/anime")
+    @GET("anime")
     suspend fun getAnimeList(): Response<RemoteListResponse<RemoteAnime>>
 }
