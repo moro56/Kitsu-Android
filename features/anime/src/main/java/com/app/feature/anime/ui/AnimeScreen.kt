@@ -1,12 +1,14 @@
 package com.app.feature.anime.ui
 
 import androidx.compose.foundation.layout.Box
-import androidx.compose.material3.Text
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.app.core.ui.Loading
 
 /**
  * Anime screen
@@ -16,7 +18,10 @@ import androidx.hilt.navigation.compose.hiltViewModel
  */
 @Composable
 fun AnimeScreen(modifier: Modifier, viewModel: AnimeViewModel = hiltViewModel()) {
-    AnimeScreenContent(modifier = modifier)
+    // ViewModel state
+    val uiState = viewModel.uiState.collectAsState()
+
+    AnimeScreenContent(modifier = modifier, state = uiState.value)
 }
 
 /**
@@ -25,14 +30,22 @@ fun AnimeScreen(modifier: Modifier, viewModel: AnimeViewModel = hiltViewModel())
  * @param modifier compose modifier
  */
 @Composable
-fun AnimeScreenContent(modifier: Modifier) {
-    Box(modifier = modifier, contentAlignment = Alignment.Center) {
-        Text(text = "Anime")
+fun AnimeScreenContent(modifier: Modifier, state: AnimeContract.State) {
+    Box(modifier = modifier) {
+        LazyColumn {
+            items(state.animeList, key = { i -> i.id }) {
+                AnimeItem(anime = it)
+            }
+        }
+
+        if (state.loading) {
+            Loading(showShadow = false, disableClick = false)
+        }
     }
 }
 
 @Preview
 @Composable
 fun AnimeScreenContentPreview() {
-    AnimeScreenContent(Modifier)
+    AnimeScreenContent(Modifier, animeStateMock)
 }

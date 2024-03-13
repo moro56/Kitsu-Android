@@ -12,25 +12,29 @@ fun List<RemoteResponseData<RemoteAnime>>.toModelList() = this.map { it.toModel(
 /**
  * Map remote model to domain model
  */
-fun RemoteResponseData<RemoteAnime>.toModel() = with(this.attributes) {
-    Anime(
-        this.createdAt,
-        this.updatedAt,
-        this.slug,
-        this.synopsis,
-        this.canonicalTitle,
-        this.averageRating,
-        this.startDate,
-        this.endDate,
-        this.ratingRank,
-        this.popularityRank,
-        this.ageRating,
-        this.ageRatingGuide,
-        this.subtype,
-        this.status,
-        this.episodeCount,
-        this.episodeLength,
-        this.youtubeVideoId,
-        this.showType
-    )
+fun RemoteResponseData<RemoteAnime>.toModel(): Anime {
+    val id = this.id
+    return with(this.attributes) {
+        Anime(
+            id,
+            this.createdAt,
+            this.updatedAt,
+            this.slug,
+            this.synopsis,
+            this.canonicalTitle,
+            this.averageRating,
+            this.startDate,
+            this.endDate,
+            this.ratingRank,
+            this.popularityRank,
+            this.ageRating,
+            this.ageRatingGuide,
+            this.subtype,
+            this.status,
+            this.episodeCount,
+            this.episodeLength,
+            this.youtubeVideoId,
+            this.showType
+        )
+    }
 }

@@ -15,13 +15,21 @@ class AnimeViewModel @Inject constructor(private val repository: Repository) :
         loadAnimeList()
     }
 
-    override fun createInitialState() = AnimeContract.State(animeList = emptyList())
+    override fun createInitialState() =
+        AnimeContract.State(animeList = emptyList(), loading = false)
 
     override fun handleEvent(event: AnimeContract.Event) {
     }
 
     private fun loadAnimeList() = viewModelScope.launch {
+        setState { copy(loading = true) }
         val result = repository.getAnimeList()
-        println(result)
+        when {
+            result.isSuccess -> {
+                setState { copy(animeList = result.getOrElse { emptyList() }, loading = false) }
+            }
+
+            else -> setState { copy(loading = false) }
+        }
     }
 }
