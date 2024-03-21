@@ -1,4 +1,4 @@
-package com.app.kitsu.ui.theme
+package com.app.core.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
