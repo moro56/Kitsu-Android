@@ -8,6 +8,7 @@ data class Anime(
     val updatedAt: Date,
     val slug: String,
     val synopsis: String,
+    val title: String,
     val canonicalTitle: String,
     val averageRating: String,
     val startDate: String,
@@ -21,7 +22,8 @@ data class Anime(
     val episodeCount: Int,
     val episodeLength: Int,
     val youtubeVideoId: String,
-    val showType: String
+    val showType: String,
+    val posterImage: AnimePoster
 )
 
 val animeMockData = Anime(
@@ -30,6 +32,7 @@ val animeMockData = Anime(
     updatedAt = Date(),
     slug = "sample-anime",
     synopsis = "This is a sample anime synopsis.",
+    title = "Cowboy Bebop",
     canonicalTitle = "Sample Anime",
     averageRating = "8.5",
     startDate = "2023-01-01",
@@ -43,5 +46,6 @@ val animeMockData = Anime(
     episodeCount = 12,
     episodeLength = 24,
     youtubeVideoId = "sampleYoutubeId",
-    showType = "TV"
+    showType = "TV",
+    posterImage = animePosterMockData
 )

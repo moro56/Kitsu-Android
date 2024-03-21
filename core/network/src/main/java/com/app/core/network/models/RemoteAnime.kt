@@ -7,6 +7,7 @@ data class RemoteAnime(
     val updatedAt: Date,
     val slug: String,
     val synopsis: String,
+    val titles: RemoteAnimeTitle,
     val canonicalTitle: String,
     val averageRating: String,
     val startDate: String,
@@ -20,5 +21,6 @@ data class RemoteAnime(
     val episodeCount: Int,
     val episodeLength: Int,
     val youtubeVideoId: String,
-    val showType: String
+    val showType: String,
+    val posterImage: RemoteAnimePoster
 )

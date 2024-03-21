@@ -12,4 +12,7 @@ android {
 dependencies {
     implementation(project(":core:base"))
     implementation(project(":core:navigation"))
+
+    // Image loading
+    implementation(libs.glide)
 }

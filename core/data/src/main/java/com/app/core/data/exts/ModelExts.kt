@@ -1,6 +1,7 @@
 package com.app.core.data.exts
 
 import com.app.core.data.models.Anime
+import com.app.core.data.models.AnimePoster
 import com.app.core.network.models.RemoteAnime
 import com.app.core.network.models.RemoteResponseData
 
@@ -16,25 +17,35 @@ fun RemoteResponseData<RemoteAnime>.toModel(): Anime {
     val id = this.id
     return with(this.attributes) {
         Anime(
-            id,
-            this.createdAt,
-            this.updatedAt,
-            this.slug,
-            this.synopsis,
-            this.canonicalTitle,
-            this.averageRating,
-            this.startDate,
-            this.endDate,
-            this.ratingRank,
-            this.popularityRank,
-            this.ageRating,
-            this.ageRatingGuide,
-            this.subtype,
-            this.status,
-            this.episodeCount,
-            this.episodeLength,
-            this.youtubeVideoId,
-            this.showType
+            id = id,
+            createdAt = this.createdAt,
+            updatedAt = this.updatedAt,
+            slug = this.slug,
+            synopsis = this.synopsis,
+            title = this.titles.title,
+            canonicalTitle = this.canonicalTitle,
+            averageRating = this.averageRating,
+            startDate = this.startDate,
+            endDate = this.endDate,
+            ratingRank = this.ratingRank,
+            popularityRank = this.popularityRank,
+            ageRating = this.ageRating,
+            ageRatingGuide = this.ageRatingGuide,
+            subtype = this.subtype,
+            status = this.status,
+            episodeCount = this.episodeCount,
+            episodeLength = this.episodeLength,
+            youtubeVideoId = this.youtubeVideoId,
+            showType = this.showType,
+            posterImage = this.posterImage.let {
+                AnimePoster(
+                    tiny = it.tiny,
+                    small = it.small,
+                    medium = it.medium,
+                    large = it.large,
+                    original = it.original
+                )
+            }
         )
     }
 }
