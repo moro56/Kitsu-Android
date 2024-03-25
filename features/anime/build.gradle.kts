@@ -16,4 +16,7 @@ hilt {
 
 dependencies {
     implementation(project(":core:data"))
+
+    // Paging
+    implementation(libs.bundles.paging)
 }

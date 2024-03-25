@@ -3,4 +3,6 @@
     <string name="tab_anime">Anime</string>
     <string name="tab_manga">Manga</string>
     <string name="tab_categories">Categories</string>
+
+    <string name="anime_retry_button">Retry</string>
 </resources>

@@ -9,6 +9,9 @@ import javax.inject.Inject
 
 class RestApiImpl @Inject constructor(private val kitsuService: KitsuService) : RestApi {
 
-    override suspend fun getAnimeList(): ApiResponse<RemoteListResponse<RemoteAnime>> =
-        apiResponseOf { kitsuService.getAnimeList() }
+    override suspend fun getAnimeList(
+        limit: Int,
+        offset: Int
+    ): ApiResponse<RemoteListResponse<RemoteAnime>> =
+        apiResponseOf { kitsuService.getAnimeList(limit, offset) }
 }

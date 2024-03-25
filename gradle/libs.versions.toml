@@ -26,6 +26,7 @@ retrofit = "2.9.0"
 okhttp = "4.12.0"
 timber = "5.0.1"
 glide = "2.3.2"
+paging = "3.2.1"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -67,6 +68,9 @@ okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhtt
 okhttp-log-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
 glide = { group = "com.github.skydoves", name = "landscapist-glide", version.ref = "glide" }
+paging = { group = "androidx.paging", name = "paging-runtime", version.ref = "paging" }
+paging-compose = { group = "androidx.paging", name = "paging-compose", version.ref = "paging" }
+paging-test = { group = "androidx.paging", name = "paging-common", version.ref = "paging" }
 
 [bundles]
 compose = ["compose-material3", "compose-ui", "compose-ui-graphics", "compose-activity", "compose-navigation", "ui-tooling-preview"]
@@ -74,6 +78,7 @@ lifecycle = ["lifecycle-runtime-ktx", "lifecycle-viewmodel"]
 test = ["core-test", "mockk", "mockk-android", "mockk-agent", "junit", "coroutines-test", "robolectric", "compose-navigation", "compose-navigation-test"]
 android-test = ["androidx-test-ext-junit", "espresso-core", "coroutines-test"]
 network = ["retrofit", "retrofit-json", "okhttp", "okhttp-log-interceptor"]
+paging = ["paging", "paging-compose"]
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

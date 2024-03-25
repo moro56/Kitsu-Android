@@ -1,7 +1,7 @@
 package com.app.core.data
 
 import com.app.core.data.exts.toModelList
-import com.app.core.data.models.Anime
+import com.app.core.data.models.AnimeData
 import com.app.core.network.api.RestApi
 import com.app.core.network.models.ApiResponse
 import kotlinx.coroutines.CoroutineDispatcher
@@ -13,21 +13,29 @@ class RepositoryImpl @Inject constructor(private val restApi: RestApi) : Reposit
 
     override val coroutineDispatcher: CoroutineDispatcher = Dispatchers.IO
 
-    override suspend fun getAnimeList(): Result<List<Anime>> = withContext(coroutineDispatcher) {
-        when (val response = restApi.getAnimeList()) {
-            is ApiResponse.Error -> {
-                // TODO
-                Result.failure(Exception())
-            }
+    override suspend fun getAnimeList(limit: Int, offset: Int): Result<AnimeData> =
+        withContext(coroutineDispatcher) {
+            when (val response = restApi.getAnimeList(limit, offset)) {
+                is ApiResponse.Error -> {
+                    // TODO
+                    Result.failure(Exception())
+                }
 
-            is ApiResponse.Exception -> {
-                // TODO
-                Result.failure(response.throwable)
-            }
+                is ApiResponse.Exception -> {
+                    // TODO
+                    Result.failure(response.throwable)
+                }
 
-            is ApiResponse.Success -> {
-                Result.success(response.result.data.toModelList())
+                is ApiResponse.Success -> {
+                    Result.success(
+                        AnimeData(
+                            animeList = response.result.data.toModelList(),
+                            prevOffset = response.result.links.prevOffset,
+                            nextOffset = response.result.links.nextOffset,
+                            lastOffset = response.result.links.lastOffset
+                        )
+                    )
+                }
             }
         }
-    }
 }

@@ -12,7 +12,7 @@ data class Anime(
     val canonicalTitle: String,
     val averageRating: String,
     val startDate: String,
-    val endDate: String,
+    val endDate: String?,
     val popularityRank: Int,
     val ratingRank: Int,
     val ageRating: String,
@@ -21,7 +21,7 @@ data class Anime(
     val status: String,
     val episodeCount: Int,
     val episodeLength: Int,
-    val youtubeVideoId: String,
+    val youtubeVideoId: String?,
     val showType: String,
     val posterImage: AnimePoster
 )
