@@ -11,6 +11,10 @@ android {
 }
 
 dependencies {
+    // Room
     implementation(libs.bundles.room)
     kapt(libs.room.compiler)
+
+    // Paging
+    implementation(libs.bundles.paging)
 }

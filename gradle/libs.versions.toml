@@ -75,6 +75,7 @@ paging-test = { group = "androidx.paging", name = "paging-common", version.ref =
 room = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 room-extensions = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+room-paging = { group = "androidx.room", name = "room-paging", version.ref = "room" }
 
 [bundles]
 compose = ["compose-material3", "compose-ui", "compose-ui-graphics", "compose-activity", "compose-navigation", "ui-tooling-preview"]
@@ -83,7 +84,7 @@ test = ["core-test", "mockk", "mockk-android", "mockk-agent", "junit", "coroutin
 android-test = ["androidx-test-ext-junit", "espresso-core", "coroutines-test"]
 network = ["retrofit", "retrofit-json", "okhttp", "okhttp-log-interceptor"]
 paging = ["paging", "paging-compose"]
-room = ["room", "room-extensions"]
+room = ["room", "room-extensions", "room-paging"]
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
