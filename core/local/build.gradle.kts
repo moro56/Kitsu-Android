@@ -11,10 +11,12 @@ android {
 }
 
 dependencies {
+    testImplementation(project(":core:test"))
+
     // Room
-    implementation(libs.bundles.room)
+    api(libs.bundles.room)
     kapt(libs.room.compiler)
 
     // Paging
-    implementation(libs.bundles.paging)
+    api(libs.bundles.paging)
 }

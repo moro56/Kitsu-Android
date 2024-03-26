@@ -1,14 +1,11 @@
 package com.app.feature.anime.ui
 
 import androidx.lifecycle.viewModelScope
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.app.core.base.mvi.BaseViewModel
 import com.app.core.data.Repository
 import com.app.core.data.models.Anime
-import com.app.feature.anime.ui.paging.AnimePagingSource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
@@ -16,8 +13,6 @@ import javax.inject.Inject
 
 /**
  * Anime viewModel
- *
- * @property repository repository
  */
 @HiltViewModel
 class AnimeViewModel @Inject constructor(private val repository: Repository) :
@@ -30,9 +25,7 @@ class AnimeViewModel @Inject constructor(private val repository: Repository) :
     init {
         // Initialize paging library
         viewModelScope.launch {
-            Pager(config = PagingConfig(20, prefetchDistance = 9, enablePlaceholders = true)) {
-                AnimePagingSource(repository)
-            }.flow.cachedIn(viewModelScope).collect {
+            repository.getAnimeList().cachedIn(viewModelScope).collect {
                 // Use both so that we pass to the state the paging state too
                 pagingFlow.value = it
                 setState { copy(animeData = pagingFlow) }

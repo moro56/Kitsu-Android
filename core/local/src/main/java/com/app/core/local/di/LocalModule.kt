@@ -2,8 +2,8 @@ package com.app.core.local.di
 
 import android.content.Context
 import androidx.room.Room
-import com.app.core.local.dao.AnimeDao
-import com.app.core.local.dao.RemoteKeysDao
+import com.app.core.local.LocalClient
+import com.app.core.local.LocalClientImpl
 import com.app.core.local.database.AppDatabase
 import dagger.Module
 import dagger.Provides
@@ -20,8 +20,5 @@ object LocalModule {
         Room.databaseBuilder(context, AppDatabase::class.java, "localDb").build()
 
     @Provides
-    fun providesAnimeDao(appDatabase: AppDatabase): AnimeDao = appDatabase.animeDao()
-
-    @Provides
-    fun providesRemoteKeysDao(appDatabase: AppDatabase): RemoteKeysDao = appDatabase.remoteKeysDao()
+    fun providesLocalClient(appDatabase: AppDatabase): LocalClient = LocalClientImpl(appDatabase)
 }

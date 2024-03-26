@@ -10,9 +10,12 @@ import com.app.core.local.models.LocalAnime
 @Dao
 interface AnimeDao {
 
-    @Query("SELECT * FROM anime ORDER BY page")
+    @Query("Select * From anime Order By `offset`")
     fun getAnimePagingSource(): PagingSource<Int, LocalAnime>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(news: List<LocalAnime>)
+
+    @Query("Delete From anime")
+    suspend fun clearAnime()
 }

@@ -1,17 +1,16 @@
 package com.app.core.data
 
-import com.app.core.data.models.AnimeData
+import androidx.paging.PagingData
+import com.app.core.data.models.Anime
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.flow.Flow
 
 interface Repository {
 
     val coroutineDispatcher: CoroutineDispatcher
 
     /**
-     * Retrieve list of anime to display and info about next page to load
-     *
-     * @param limit number of items to load
-     * @param offset offset of the first item to load
+     * Retrieve [Flow] of the paginated list of anime
      */
-    suspend fun getAnimeList(limit: Int, offset: Int): Result<AnimeData>
+    suspend fun getAnimeList(): Flow<PagingData<Anime>>
 }

@@ -30,5 +30,5 @@ data class LocalAnime(
     val posterImageMedium: String,
     val posterImageLarge: String,
     val posterImageOriginal: String,
-    val page: Int
+    val offset: Int
 )

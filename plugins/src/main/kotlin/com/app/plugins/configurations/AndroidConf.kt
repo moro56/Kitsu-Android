@@ -31,6 +31,7 @@ internal fun Project.androidConf(extension: BaseExtension) {
                     "-Xstring-concat=inline",
                     "-Xlint:deprecation",
                     "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
+                    "-opt-in=androidx.paging.ExperimentalPagingApi",
                     "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
                 )
             }

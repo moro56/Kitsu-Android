@@ -9,9 +9,10 @@ data class LocalRemoteKeys(
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = "anime_id")
     val animeId: String,
-    val prevKey: Int?,
-    val currentPage: Int,
-    val nextKey: Int?,
+    val prevOffset: Int?,
+    val currentOffset: Int,
+    val nextOffset: Int?,
+    val lastOffset: Int,
     @ColumnInfo(name = "created_at")
     val createdAt: Long = System.currentTimeMillis()
 )
